@@ -44,3 +44,29 @@ body {
     padding: 0 1rem;
     line-height: 150%;
 }
+
+.contact {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.contact__details {
+  /* 1ch is equivalent to the width of the 0 character at the current
+       font size. This allows to create a roughly one letter gap bewteen
+       the contact label and the associated contact detail */
+
+  margin-left: 1ch;
+}
+
+.contact__link {
+    color: black;
+    text-decoration: none;
+    box-shadow: 0 3px 0 0 #4cafda;
+}
+
+.contact__link:hover {
+  color: #4cafda;
+}
