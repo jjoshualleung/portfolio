@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask import abort
 
 app = Flask(__name__)
 
@@ -8,7 +9,7 @@ projects = [
         "thumb": "img/minneapolis_atat.png",
         "hero": "img/minneapolis_atat.png",
         "categories": ["Python", "PySpark"],
-        # "slug": "",
+        "slug": "geospatial-analysis",
         # "prod": "",
     },
     {
@@ -19,11 +20,11 @@ projects = [
         "slug": "web-application",
     },
     {
-        "name": "Data pipeline development and analysis for kiwifruit drop in Italy ",
+        "name": "Data pipeline development and analysis for kiwifruit drop in Italy",
         "thumb": "img/kiwifruit.png",
         "hero": "img/kiwifruit.png",
         "categories": ["Python", "PySpark"],
-        "slug": "api-docs",
+        "slug": "data-pipeline-development",
     },
 ]
 
@@ -38,6 +39,13 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+slug_to_projects = {project["slug"] for project in projects}
+@app.route('/projects/<string:slug>')
+def projects(slug):
+    if slug not in slug_to_projects:
+        abort(404)
+    return render_template(f"project_{slug}.html", project=slug_to_projects[slug])
 
 if __name__ == '__main__':
     app.run()
