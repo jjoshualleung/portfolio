@@ -5,8 +5,8 @@ app = Flask(__name__)
 projects = [
     {
         "name": "Site Density Analysis in Minneapolis and Minnesota",
-        # "thumb": "img/.png",
-        # "hero": "img/.png",
+        "thumb": "img/minneapolis_atat.png",
+        "hero": "img/minneapolis_atat.png",
         "categories": ["Python", "PySpark"],
         # "slug": "",
         # "prod": "",
