@@ -40,9 +40,9 @@ def about():
 def contact():
     return render_template('contact.html')
 
-slug_to_projects = {project["slug"] for project in projects}
+slug_to_projects = {project["slug"]:project for project in projects}
 @app.route('/projects/<string:slug>')
-def projects(slug):
+def project(slug):
     if slug not in slug_to_projects:
         abort(404)
     return render_template(f"project_{slug}.html", project=slug_to_projects[slug])
