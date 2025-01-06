@@ -124,6 +124,21 @@ body {
     text-decoration: underline;
 }
 
+.categories {
+    display: flex;
+    padding: 0;
+    margin: 0 0 0.75rem;
+    color: #3d84a3;
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 0.075rem;
+}
+
+.categories__tag:not(:last-of-type)::after {
+    content: "|";
+    margin: 0 0.25rem;
+}
 
 .u-bare-link {
     text-decoration: none;
