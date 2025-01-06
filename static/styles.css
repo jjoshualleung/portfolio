@@ -175,6 +175,17 @@ body {
     }
 }
 
+.project__heading {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 150%;
+}
+
+.project__heading--meta {
+  font-size: inherit;
+  margin-bottom: 1rem;
+}
+
 .u-bare-link {
     text-decoration: none;
 }
