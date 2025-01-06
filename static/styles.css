@@ -42,6 +42,7 @@ body {
 }
 
 .main--about {
+    flex-direction: column;
     max-width: 500px;
     padding: 0 1rem;
     line-height: 150%;
@@ -150,6 +151,28 @@ body {
 
 .project {
     max-width: 50rem;
+    padding: 0 1rem;
+    display: flex;
+    font-size: 1.1rem;
+    flex-direction: column;
+}
+
+.project__content {
+  margin-bottom: 1rem;
+  line-height: 150%;
+}
+
+@media (min-width: 48.75em) {
+    .project {
+        flex-direction: row;
+        padding: 0;
+    }
+
+    .project__content {
+        flex: 7; /* Only take up to 70% of the content space */
+        margin-right: 3rem;
+        padding: 0;
+    }
 }
 
 .u-bare-link {
