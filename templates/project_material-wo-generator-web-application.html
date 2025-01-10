@@ -2,11 +2,11 @@
 {% block content %}
     <main class="main main--project">
         <div>
-            <img
-                class="hero"
-                src="{{ url_for('static', filename=project['hero']) }}"
-                alt="web-application"
-            />
+{#            <img#}
+{#                class="hero"#}
+{#                src="{{ url_for('static', filename=project['hero']) }}"#}
+{#                alt="web-application"#}
+{#            />#}
 
             <article class="project">
                 <article class="project__content">
@@ -14,6 +14,7 @@
                     <section class="project-showcase">
 
                         <h3 class="section-heading">Contributions</h3>
+
                         <p>
                             The Material Tag Generator transformed the material tagging process in the warehouse:
                         </p>
@@ -26,6 +27,12 @@
                         <p>
                             This project demonstrates my ability to identify inefficiencies, design innovative solutions, and deliver impactful results using modern technologies.
                         </p>
+
+                        <img
+                            src="{{ url_for('static', filename='img/material_tag_web.jpg') }}"
+                            alt="Weather Data Lineage"
+                            style="width: 500px; height: auto"
+                        >
                         <h2 class="project-heading">The Story Behind the Material Tag Generator</h2>
 
                         <h3 class="section-heading">Scenario & Motivation</h3>
