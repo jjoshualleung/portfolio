@@ -9,8 +9,7 @@ projects = [
         "thumb": "img/minneapolis_atat.png",
         "hero": "img/minneapolis_atat.png",
         "categories": ["Python", "PySpark"],
-        "slug": "geospatial-analysis",
-        # "prod": "",
+        "slug": "site-density-analysis",
     },
     {
         "name": "Material Work Order Tag Generator",
