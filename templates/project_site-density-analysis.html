@@ -11,33 +11,49 @@
             <article class="project">
                 <article class="project__content">
                     <h2 class="project__heading">{{ project['name'] }}</h2>
-                        <h3> Internship Contributions</h3>
+                        <h3>Contributions</h3>
+                        <p>
+                            Directly influenced Qualcomm’s acquisition of the company in August by independently conducting a site density analysis that demonstrated the reliability of <a href="https://www.qualcomm.com/news/releases/2023/02/qualcomm-expands-offering-to-simplify-and-accelerate-iot-across-">Cloud Location over Cellular (C-LoC)</a> technology.
+                        </p>
 
-                        <ul>
-                            <li>Conducted advanced analysis of billions of cellular network data to validate 5G location-tracking reliability.</li>
-                            <li>Developed insights into cell network models, highlighting carrier performance and coverage gaps using Python, Pandas, and GeoPandas.</li>
-                            <li>Applied H3 indexing to evaluate sector density, identifying T-Mobile as the highest-density carrier in Minnesota with 3.8 sectors per km².</li>
-                            <li>Used PySpark SQL to process and manage large-scale datasets for effective geospatial analysis.</li>
-                        </ul>
                         <h3>Site Density Analysis Findings</h3>
+                    <a href="{{ url_for('static', filename='img/minnesota_carrier.png') }}" data-lightbox="diagram">
+
+                        <img
+                                src="{{ url_for('static', filename='img/minnesota_carrier.png') }}"
+                                alt="Weather Data Lineage"
+                                style="width: auto; height: 500px; cursor: zoom-in;"
+                        >
+                    </a>
 
                         <ul>
-                            <li>Verizon: 98% hexagonal coverage across Minnesota</li>
-                            <li>AT&T: Most uniform sector distribution</li>
-                            <li>T-Mobile: Highest density in rural areas</li>
-                            <li>Sprint: Lowest overall coverage</li>
+                            <li><strong>Verizon:</strong> Carrier with the highest geographical coverage in Minnesota, spanning 193 out of 197 hexagons (98%).</li>
+                            <li><strong>AT&T:</strong> Close to Verizon in coverage, with a presence in 191 hexagons (97%) and the most uniform sector distribution.</li>
+                            <li><strong>T-Mobile:</strong> Achieved the highest maximum density of 3.8 sectors per km² in Minnesota, covering 6,720 sectors.</li>
+                            <li><strong>Sprint:</strong> Reported the least geographical coverage, existing in only 114 hexagons (58%).</li>
                         </ul>
 
-                    <p>
-                        This project analyzes cellular network density using H3 geospatial partitioning.
-                        It focuses on evaluating network quality across Minnesota, with a detailed analysis
-                        of Minneapolis and St. Paul.
-                    </p>
-                    <p>
-                        Using Python, PySpark, and MLflow, the project processes large-scale geospatial data
-                        to generate insights into sector density, geographical coverage, and carrier performance.
-                        This helps identify coverage gaps and optimize network infrastructure.
-                    </p>
+                        <p>
+                            This project analyzes cellular network density using H3 geospatial partitioning.
+                            It focuses on evaluating network quality across Minnesota, with a detailed analysis
+                            of Minneapolis and St. Paul.
+                        </p>
+                        <p>
+                            Using Python, PySpark, and MLflow, the project processes large-scale geospatial data
+                            to generate insights into sector density, geographical coverage, and carrier performance.
+                            This helps identify coverage gaps and optimize network infrastructure.
+                        </p>
+                        <h3>Data Breakdown</h3>
+                        <p>
+                            The analysis utilized 197 hexagonal cells with an average edge length of 22 km, representing geographical regions in Minnesota. Key metrics included:
+                        </p>
+                        <ul>
+                            <li><strong>Sector Count:</strong> Verizon had the highest sector count (26,660), followed by AT&T (25,156), T-Mobile (20,090), and Sprint (15,280).</li>
+                            <li><strong>Sector Density:</strong> T-Mobile exhibited the highest density with a maximum of 3.8 sectors per km².</li>
+                        </ul>
+                        <p>
+                            Statistical analysis further revealed variations in sector coverage and density, providing critical insights for optimizing carrier infrastructure.
+                        </p>
                     </article>
                 <section>
                     <article class="project__meta-group">
