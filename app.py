@@ -15,7 +15,7 @@ projects = [
         "name": "Material Work Order Tag Generator",
         "thumb": "img/material_tag_web.jpg",
         "hero": "img/material_tag_web.jpg",
-        "categories": ["Flask", "Python"],
+        "categories": ["Python", "Flask"],
         "slug": "material-wo-generator-web-application",
     },
     {
