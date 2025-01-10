@@ -4,13 +4,13 @@ from flask import abort
 app = Flask(__name__)
 
 projects = [
-    {
-        "name": "Site Density Analysis in Minneapolis and Minnesota",
-        "thumb": "img/minneapolis_atat.png",
-        "hero": "img/minneapolis_atat.png",
-        "categories": ["Python", "PySpark"],
-        "slug": "site-density-analysis",
-    },
+    # {
+    #     "name": "Site Density Analysis in Minneapolis and Minnesota",
+    #     "thumb": "img/minneapolis_atat.png",
+    #     "hero": "img/minneapolis_atat.png",
+    #     "categories": ["Python", "PySpark"],
+    #     "slug": "site-density-analysis",
+    # },
     {
         "name": "Material Work Order Tag Generator",
         "thumb": "img/material_tag_web.jpg",
