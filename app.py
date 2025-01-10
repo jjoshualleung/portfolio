@@ -17,7 +17,7 @@ projects = [
         "thumb": "img/material_tag_web.jpg",
         "hero": "img/material_tag_web.jpg",
         "categories": ["Flask", "Python"],
-        "slug": "web-application",
+        "slug": "material-wo-generator-web-application",
     },
     {
         "name": "Data pipeline development and analysis for kiwifruit drop in Italy",
