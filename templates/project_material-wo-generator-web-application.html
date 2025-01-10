@@ -11,18 +11,74 @@
             <article class="project">
                 <article class="project__content">
                     <h2 class="project__heading">{{ project['name'] }}</h2>
+                    <section class="project-showcase">
+                                                <!-- Final Impact -->
+                        <h3 class="section-heading">The Result</h3>
+                        <p>
+                            The Material Tag Generator transformed the material tagging process in the warehouse:
+                        </p>
+                        <ul>
+                            <li>Reduced processing time from 1-2 hours per file to less than a second, saving approximately 10 hours per week for warehouse operators.</li>
+                            <li>Eliminated manual input and associated human errors, ensuring data accuracy.</li>
+                            <li>Enabled operators to handle multiple Excel files simultaneously, significantly improving overall productivity.</li>
+                            <li>Provided a reliable, scalable solution that could be maintained and expanded upon in the future.</li>
+                        </ul>
+                        <p>
+                            This project demonstrates my ability to identify inefficiencies, design innovative solutions, and deliver impactful results using modern technologies.
+                        </p>
+                        <h2 class="project-heading">The Story Behind the Material Tag Generator</h2>
 
-                    <p>
-                        Hi, I'm Bob! I love helping students learn to code and master software development.
-                        I've been teaching online for over 6 years, and I founded Teclado to bring software
-                        development to everyone—my objective is for you to truly understand everything
-                        that goes on behind the scenes.
-                    </p>
-                    <p>
-                        Coding is extremely rewarding. As you learn, things start to click and make sense.
-                        You can join the dots of all the things that weren't quite clear before.
-                        I'm here to make that journey quick and painless!
-                    </p>
+                        <!-- Scenario/Motivation -->
+                        <h3 class="section-heading">Scenario & Motivation</h3>
+                        <p>
+                            In a warehouse environment, material tags are essential for tracking and organizing components for rack servers, switches, and other hardware. Previously, these tags were generated using an Excel macro developed six years ago. However, when the developer left, the macro became outdated and riddled with bugs, leading to inefficiencies and frustrations among warehouse operators.
+                        </p>
+                        <p>
+                            The macro required manual input and could only generate tags one column at a time. A single Excel file could contain up to 26 columns, taking operators 1-2 hours to process. Recognizing the inefficiency and its impact on productivity, I decided to create a modern, automated solution.
+                        </p>
+
+                        <!-- Problem -->
+                        <h3 class="section-heading">The Problem</h3>
+                        <p>
+                            The outdated Excel macro posed several challenges:
+                        </p>
+                        <ul>
+                            <li>Frequent bugs and lack of support due to the original developer's resignation.</li>
+                            <li>Inability to process multiple columns or files simultaneously, resulting in time-consuming, manual work.</li>
+                            <li>Prone to human error during manual input and processing.</li>
+                        </ul>
+
+                        <!-- Proposed Solution -->
+                        <h3 class="section-heading">Proposed Solution</h3>
+                        <p>
+                            I envisioned a web application that could:
+                        </p>
+                        <ul>
+                            <li>Automatically generate material tags for entire Excel files, regardless of the number of columns.</li>
+                            <li>Process multiple Excel files simultaneously with a single click.</li>
+                            <li>Provide a user-friendly interface that eliminates manual input and ensures data accuracy.</li>
+                        </ul>
+                        <p>
+                            My goal was to replace the Excel macro with a robust, scalable, and self-contained web application, significantly reducing the time and effort required to generate material tags.
+                        </p>
+
+                        <!-- The Process -->
+                        <h3 class="section-heading">The Process</h3>
+                        <p>
+                            I followed a structured approach to build and deploy the application:
+                        </p>
+                        <ol>
+                            <li>
+                                <strong>Building the Functionality:</strong> I used Python and the OpenPyXL library to develop the core functionality for generating material tags. I validated the functionality with unit tests using Pytest to ensure reliability and accuracy.
+                            </li>
+                            <li>
+                                <strong>Designing the Web Application:</strong> I created a user-friendly interface using HTML, Jinja, and CSS. The web application allows users to upload multiple Excel files and generates all material tags in less than a second.
+                            </li>
+                            <li>
+                                <strong>Deploying the Application:</strong> I containerized the application using Podman and configured it with a Gunicorn server and a Dockerfile for self-containment. For deployment, I set up a Linux Ubuntu server, ensuring the application was accessible and performant in a production environment.
+                            </li>
+                        </ol>
+                    </section>
                 </article>
 
                 <section>
@@ -40,7 +96,7 @@
                     </article>
 
                     <a class="cta" href="{{ project['prod'] }}">
-                        <img class="cta__icon" src="{{ url_for('static', filename='img/pointer.svg') }}">
+                        <img class="cta__icon" src="{{ url_for('static', filename='img/pointer.svg') }}" alt="pointer">
                         View in production
                     </a>
                 </section>
