@@ -5,11 +5,11 @@ app = Flask(__name__)
 
 projects = [
     {
-        "name": "Site Density Analysis in Minneapolis and Minnesota",
-        "thumb": "img/minneapolis_atat.png",
-        "hero": "img/minneapolis_atat.png",
+        "name": "Data pipeline development and analysis for kiwifruit drop in Italy",
+        "thumb": "img/kiwifruit.png",
+        "hero": "img/kiwifruit.png",
         "categories": ["Python", "PySpark"],
-        "slug": "site-density-analysis",
+        "slug": "data-pipeline-development",
     },
     {
         "name": "Material Work Order Tag Generator",
@@ -19,12 +19,12 @@ projects = [
         "slug": "material-wo-generator-web-application",
     },
     {
-        "name": "Data pipeline development and analysis for kiwifruit drop in Italy",
-        "thumb": "img/kiwifruit.png",
-        "hero": "img/kiwifruit.png",
+        "name": "Site Density Analysis in Minneapolis and Minnesota",
+        "thumb": "img/minneapolis_atat.png",
+        "hero": "img/minneapolis_atat.png",
         "categories": ["Python", "PySpark"],
-        "slug": "data-pipeline-development",
-    },
+        "slug": "site-density-analysis",
+    }
 ]
 
 @app.route('/')
