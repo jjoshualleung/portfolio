@@ -38,22 +38,26 @@
                     <p>
                         The weather data lineage involves merging multiple raw weather datasets after preprocessing the data. Below is a diagram showing the weather data lineage and preprocessing steps:
                     </p>
-                    <img
-                            src="{{ url_for('static', filename='img/weather_data_lineage.jpg') }}"
-                            alt="Weather Data Lineage"
-                            style="width: 700px; height: auto;"
-                    >
+                    <a href="{{ url_for('static', filename='img/weather_data_lineage.png') }}" data-lightbox="diagram">
+
+                        <img
+                                src="{{ url_for('static', filename='img/weather_data_lineage.jpg') }}"
+                                alt="Weather Data Lineage"
+                                style="width: 700px; height: auto; cursor: zoom-in;"
+                        >
+                    </a>
 
                     <h3>Entity Relationship Diagram (ERD)</h3>
                     <p>
                         The ERD was designed to understand how different data entities should be joined together to achieve comprehensive metrics for each KPIN, maturity area, bay, and cane. The diagram illustrates the relationships between various data sets and their corresponding metrics.
                     </p>
-                    <img
-                            src="{{ url_for('static', filename='img/entities_relationships_diagram.png') }}"
-                            alt="Entity Relationship Diagram"
-                            style="width: 600px; height: 600px;"
-                    >
-
+                    <a href="{{ url_for('static', filename='img/entities_relationships_diagram.png') }}" data-lightbox="diagram">
+                        <img
+                                src="{{ url_for('static', filename='img/entities_relationships_diagram.png') }}"
+                                alt="Entity Relationship Diagram"
+                                style="width: 600px; height: 600px; cursor: zoom-in;"
+                        >
+                    </a>
                     <h3>Data Analysis and Findings</h3>
                     <h4>Key Findings</h4>
                     <ul>
