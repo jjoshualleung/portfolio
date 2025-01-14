@@ -17,6 +17,7 @@ projects = [
         "hero": "img/material_tag_web.jpg",
         "categories": ["Python", "Flask"],
         "slug": "material-wo-generator-web-application",
+        "prod": "https://gitlab.com/jjoshualleung/document-converter-platform"
     },
     {
         "name": "Site Density Analysis in Minneapolis and Minnesota",
