@@ -1,32 +1,37 @@
 {% extends "base.html" %}
-{% block content %}
 
+{% block content %}
 <main class="main main--contact">
     <dl>
         <div class="contact">
-            <dt> Email:</dt>
+            <dt>Email:</dt>
             <dd class="contact__details">
                 <a class="contact__link" href="mailto:joshualeung@gatech.edu">
                     joshualeung@gatech.edu
                 </a>
             </dd>
         </div>
+
         <div class="contact">
-            <dt> Linkedin:</dt>
+            <dt>LinkedIn:</dt>
             <dd class="contact__details">
                 <a class="contact__link" href="http://www.linkedin.com/in/jjoshualleung">
                     linkedin.com/in/jjoshualleung
                 </a>
             </dd>
         </div>
-{#        <div class="contact">#}
-{#            <dt> GitHub:</dt>#}
-{#            <dd class="contact__details">#}
-{#                <a class="contact__link" href="https://github.com/jjoshualleung?tab=repositories">#}
-{#                    github.com/jjoshualleung#}
-{#                </a>#}
-{#            </dd>#}
-{#        </div>#}
-{#    </dl>#}
+
+        <!-- New Resume Section -->
+        <div class="contact">
+            <dt>Resume:</dt>
+            <dd class="contact__details">
+                <a class="contact__link"
+                   href="https://docs.google.com/document/d/1g_Yjbkti0l42LoB6UCMFWqXrWXyOpaJv/edit?usp=sharing&ouid=107647802364314565910&rtpof=true&sd=true"
+                   target="_blank">
+                    View My Resume
+                </a>
+            </dd>
+        </div>
+    </dl>
 </main>
 {% endblock %}
