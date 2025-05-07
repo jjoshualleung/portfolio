@@ -10,6 +10,7 @@ projects = [
         "hero": "img/kiwifruit.png",
         "categories": ["Python", "PySpark"],
         "slug": "data-pipeline-development",
+        "prod": "https://gitlab.com/jjoshualleung/kiwifruit-analysis"
     },
     {
         "name": "Material Work Order Tag Generator",
