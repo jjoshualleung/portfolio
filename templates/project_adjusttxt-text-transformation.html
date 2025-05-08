@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="main main--project">
+        <div>
+            <img
+                class="hero"
+                src="{{ url_for('static', filename=project['hero']) }}"
+                alt="adjusttxt - Text Transformation"
+            />
+
+            <article class="project">
+                <article class="project__content">
+                    <h2 class="project__heading">{{ project['name'] }}</h2>
+
+                    <h3>Project Overview</h3>
+                    <p>
+                        <strong>adjusttxt</strong> is a Java-based command-line and library utility developed using an agile, test-driven approach. It performs basic line-based text transformations such as skipping, trimming, prefixing, blank-line removal, and reversing. The tool was designed to evolve through rigorous TDD and interface separation for reuse beyond the CLI.
+                    </p>
+
+                    <h3>Development Workflow</h3>
+                    <ul>
+                        <li><strong>TSL Creation:</strong> Generated a category-partition Test Specification List to cover all input scenarios.</li>
+                        <li><strong>JUnit Testing:</strong> Built a JUnit regression suite based on the TSL.</li>
+                        <li><strong>CLI Implementation:</strong> Implemented the CLI based on the parser and logic layers.</li>
+                        <li><strong>Interface Refactoring:</strong> Refactored the functionality into a reusable class implementing <code>adjusttxtInterface</code> with typed exceptions.</li>
+                    </ul>
+
+                    <h3>Core Features and Options</h3>
+                    <ul>
+                        <li><code>-s N</code>: Skip the first N lines</li>
+                        <li><code>-t</code>: Trim whitespace on each line</li>
+                        <li><code>-b</code>: Delete blank lines</li>
+                        <li><code>-p "str"</code>: Prefix each line with a string</li>
+                        <li><code>-w</code>: Reverse words in each line</li>
+                        <li><code>-x</code>: Reverse the order of all lines</li>
+                    </ul>
+
+                    <h3>Architecture Snapshot</h3>
+                    <p>
+                        The application is split into modular components for parsing, transformation, and output.
+                    </p>
+
+                    <h3>Validation & Outcomes</h3>
+                     <ul>
+                        <li>Developed <strong>62 test cases</strong> from a category-partition TSL to cover a wide range of inputs and edge cases.</li>
+                        <li>Achieved <strong>90% pass rate</strong> on the instructor’s hidden autograder test suite via Gradescope CI.</li>
+                        <li>Validated behavior across:<br>
+                            – Conflicting or missing flags (<code>-w</code> vs <code>-x</code>, invalid skip count)<br>
+                            – Edge cases like blank files, no trailing newline, or single-line inputs<br>
+                            – Flag order independence and trimming vs prefix interaction</li>
+                    </ul>
+                </article>
+
+                <section>
+                    <article class="project__meta-group">
+                        <h3 class="project__heading project__heading--meta">Technologies used</h3>
+                        <ul class="technology-list" style="list-style: none; padding: 0; line-height: 1.75rem;">
+                            <li class="technology-list__item">Java 21</li>
+                            <li class="technology-list__item">JUnit 5</li>
+                            <li class="technology-list__item">Git</li>
+                        </ul>
+                    </article>
+
+{#                    <a class="cta" href="{{ project['prod'] }}">#}
+{#                        <img class="cta__icon" src="{{ url_for('static', filename='img/pointer.svg') }}">#}
+{#                        View in production#}
+{#                    </a>#}
+                </section>
+            </article>
+        </div>
+    </main>
+{% endblock %}

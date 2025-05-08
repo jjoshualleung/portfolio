@@ -26,6 +26,13 @@ projects = [
         "hero": "img/minneapolis_atat.png",
         "categories": ["Python", "PySpark"],
         "slug": "site-density-analysis",
+    },
+    {
+        "name": "adjusttxt – Line‑Based Text Transformation",
+        "thumb": "img/tsl.jpg",
+        "hero": "img/tsl.jpg",
+        "categories": ["Java", "TSL"],
+        "slug": "adjusttxt-text-transformation"
     }
 ]
 
