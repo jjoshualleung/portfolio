@@ -32,7 +32,8 @@ projects = [
         "thumb": "img/tsl.jpg",
         "hero": "img/tsl.jpg",
         "categories": ["Java", "TSL"],
-        "slug": "adjusttxt-text-transformation"
+        "slug": "adjusttxt-text-transformation",
+        "prod": "https://gitlab.com/jjoshualleung/adjusttxt"
     }
 ]
 
