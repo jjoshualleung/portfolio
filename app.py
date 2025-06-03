@@ -37,8 +37,8 @@ projects = [
     },
     {
         "name": "Autonomous Spaceship Asteroid-Hopping Navigation",
-        "thumb": "img/",
-        "hero": "img/",
+        "thumb": "img/spaceship.png",
+        # "hero": "img/spaceship.png",
         "categories": ["Python", "Robotics"],
         "slug": "autonomous-spaceship-navigation",
         # "prod": "https://gitlab.com/jjoshualleung/adjusttxt"
