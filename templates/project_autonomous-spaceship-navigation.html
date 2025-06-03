@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="main main--project">
+        <div>
+ <section class="project__video">
+    <h3>Select Animation</h3>
+    <select id="videoSelector" onchange="changeVideo()">
+        <option value="case28.mov">Sample 1</option>
+        <option value="case33.mov">Sample 2</option>
+    </select>
+
+    <video id="projectVideo" controls style="max-width: 640px; width: 100%;">
+        <source id="videoSource"
+                src="{{ url_for('static', filename='videos/case28.mov') }}"
+                type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+
+<script>
+function changeVideo() {
+    const selector    = document.getElementById('videoSelector');
+    const videoSource = document.getElementById('videoSource');
+    const videoPlayer = document.getElementById('projectVideo');
+    const filename    = selector.value;
+
+    // Update the <source> element’s src, then reload/play
+    videoSource.src = `{{ url_for('static', filename='videos/') }}${filename}`;
+    videoPlayer.load();
+    videoPlayer.play();
+}
+</script>
+            <br>
+            <br>
+            <article class="project">
+                <article class="project__content">
+                    <h2 class="project__heading">Spaceship Autonomous Navigation using Kalman Filters</h2>
+
+                    <h3>Project Overview</h3>
+                    <p>
+                        Developed a Python-based autonomous spaceship navigation system employing a per-asteroid six-state Kalman filter for precise trajectory estimation. Integrated an intelligent jump policy considering velocity, direction, and boundary conditions to navigate successfully towards the goal.
+                    </p>
+
+                    <h3>Development Workflow</h3>
+                    <ul>
+                        <li><strong>Kalman Filter Implementation:</strong> Built and tuned a six-state Kalman filter for accurate asteroid trajectory prediction.</li>
+                        <li><strong>Strategic Jump Policy:</strong> Designed a jump algorithm that utilizes estimated velocity and boundary-awareness to avoid collisions and backward movement.</li>
+                        <li><strong>Robust Codebase:</strong> Refactored mathematical operations into a reusable matrix class, ensuring maintainability and readability.</li>
+                    </ul>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Real-time prediction of asteroid positions using Kalman filters.</li>
+                        <li>Velocity-aware trajectory selection to optimize spaceship jumps.</li>
+                        <li>Dynamic boundary checking to prevent out-of-bound jumps.</li>
+                    </ul>
+
+                    <h3>Validation & Outcomes</h3>
+                    <ul>
+                        <li>Achieved <strong>100% accuracy</strong> in asteroid position estimation tests.</li>
+                        <li>Enhanced autonomous jump performance from <strong>0% to 100%</strong> by integrating velocity and boundary-aware strategies.</li>
+                        <li>Reduced overall positioning errors significantly by fine-tuning Kalman filter parameters.</li>
+                    </ul>
+                </article>
+
+                <section>
+                    <article class="project__meta-group">
+                        <h3 class="project__heading project__heading--meta">Technologies used</h3>
+                        <ul class="technology-list" style="list-style: none; padding: 0; line-height: 1.75rem;">
+                            <li class="technology-list__item">Python</li>
+                            <li class="technology-list__item">Kalman Filters</li>
+                            <li class="technology-list__item">Mathematical Modeling</li>
+                            <li class="technology-list__item">NumPy</li>
+                        </ul>
+                    </article>
+
+                    <a class="cta" href="{{ project['prod'] }}">
+                        <img class="cta__icon" src="{{ url_for('static', filename='img/pointer.svg') }}">
+                        View Project Details
+                    </a>
+                </section>
+            </article>
+        </div>
+
+        <script>
+            function changeVideo() {
+                const selector = document.getElementById('videoSelector');
+                const video = document.getElementById('projectVideo');
+                video.src = `{{ url_for('static', filename='videos/') }}${selector.value}`;
+                video.load();
+            }
+        </script>
+    </main>
+{% endblock %}

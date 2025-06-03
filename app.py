@@ -34,7 +34,16 @@ projects = [
         "categories": ["Java", "TSL"],
         "slug": "adjusttxt-text-transformation",
         "prod": "https://gitlab.com/jjoshualleung/adjusttxt"
+    },
+    {
+        "name": "Autonomous Spaceship Asteroid-Hopping Navigation",
+        "thumb": "img/",
+        "hero": "img/",
+        "categories": ["Python", "Robotics"],
+        "slug": "autonomous-spaceship-navigation",
+        # "prod": "https://gitlab.com/jjoshualleung/adjusttxt"
     }
+
 ]
 
 @app.route('/')
