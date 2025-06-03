@@ -5,11 +5,13 @@
  <section class="project__video">
     <h2>Final Result</h2>
     <select id="videoSelector" onchange="changeVideo()">
-        <option value="case28.mov">Sample 1</option>
-        <option value="case33.mov">Sample 2</option>
+        <option value="case16.mov">Sample 1</option>
+        <option value="case27.mov">Sample 2</option>
+        <option value="case28.mov">Sample 3</option>
+        <option value="case33.mov">Sample 4</option>
     </select>
 
-    <video id="projectVideo" controls style="max-width: 600px; width: 100%;">
+    <video id="projectVideo" controls style="max-width: 620px; width: 100%;">
         <source id="videoSource"
                 src="{{ url_for('static', filename='videos/case28.mov') }}"
                 type="video/mp4">
