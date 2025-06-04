@@ -57,6 +57,73 @@ function changeVideo() {
                         <li>Dynamic boundary checking to prevent out-of-bound jumps.</li>
                     </ul>
 
+                <h3>Kalman Filter Mathematics</h3>
+                <p>Each asteroid is modeled as a 6-state linear system:
+                <pre>
+            xₖ = [x, y, v_x, v_y, a_x, a_y]ᵀ
+                </pre>
+                where:</p>
+                <ul>
+                    <li><code>x, y</code> = position at time t</li>
+                    <li><code>v_x, v_y</code> = velocity at time t</li>
+                    <li><code>a_x, a_y</code> = acceleration (assumed constant over dt)</li>
+                </ul>
+
+                <p>​The discrete‐time prediction step (dt = 1) uses the state‐transition matrix <code>F</code>:</p>
+                <pre>
+                F =
+                ⎡1  0  1  0  0.5  0  ⎤
+                ⎢0  1  0  1  0    0.5⎥
+                ⎢0  0  1  0  1    0  ⎥
+                ⎢0  0  0  1  0    1  ⎥
+                ⎢0  0  0  0  1    0  ⎥
+                ⎣0  0  0  0  0    1  ⎦
+                </pre>
+                <p>,so that
+                <pre>
+                xₖ₊₁|ₖ = F · xₖ|ₖ
+                </pre>
+                and the predicted covariance is
+                <pre>
+                Pₖ₊₁|ₖ = F · Pₖ|ₖ · Fᵀ + Q
+                </pre>
+                where <code>Q</code> is the 6×6 process‐noise matrix (tuned empirically).</p>
+
+                <p>When we receive a noisy 2D measurement <code>z = [x_meas, y_meas]ᵀ</code>, the update step employs the measurement matrix <code>H</code> =
+                <pre>
+                ⎡1  0  0  0  0  0⎤
+                ⎣0  1  0  0  0  0⎦
+                </pre>
+                ,so that
+                <pre>
+                yₖ = zₖ − H·xₖ₊₁|ₖ
+                Sₖ = H·Pₖ₊₁|ₖ·Hᵀ + R
+                Kₖ = Pₖ₊₁|ₖ·Hᵀ·Sₖ⁻¹
+                xₖ₊₁|ₖ₊₁ = xₖ₊₁|ₖ + Kₖ·yₖ
+                Pₖ₊₁|ₖ₊₁ = (I − Kₖ·H)·Pₖ₊₁|ₖ
+                </pre>
+                where:</p>
+                <ul>
+                    <li><strong>Innovation (yₖ):</strong> The difference between the actual measurement <code>zₖ</code> and the predicted measurement <code>H·xₖ₊₁|ₖ</code>. This term captures how much the new observation deviates from the model’s prediction.</li>
+                    <li><strong>Innovation Covariance (Sₖ):</strong> Combines the predicted measurement uncertainty <code>H·Pₖ₊₁|ₖ·Hᵀ</code> with the measurement noise <code>R</code>. It represents how confident we are in the innovation.</li>
+                    <li><strong>Kalman Gain (Kₖ):</strong> Computed as <code>Pₖ₊₁|ₖ·Hᵀ·Sₖ⁻¹</code>. This matrix determines how much weight to give the innovation versus the prediction when updating the state.</li>
+                    <li><strong>State Update (xₖ₊₁|ₖ₊₁):</strong> The new, corrected state estimate: <code>xₖ₊₁|ₖ</code> (the prior prediction) plus <code>Kₖ·yₖ</code> (the scaled innovation). This pulls the prediction toward the actual measurement based on trust determined by <code>Kₖ</code>.</li>
+                    <li><strong>Covariance Update (Pₖ₊₁|ₖ₊₁):</strong> Updated uncertainty: <code>(I − Kₖ·H)·Pₖ₊₁|ₖ</code>. This reduces the predicted covariance according to the amount of new information provided by the measurement.</li>
+                </ul>
+
+                <p>In my implementation:</p>
+                <ul>
+                    <li>Each asteroid maintains its own state vector <code>x</code> and covariance <code>P</code>, initialized as:</li>
+                <pre>
+        x₀ = [x_meas, y_meas, 0, 0, 0, 0]ᵀ
+        P₀ = diag(σₓ², σ_y², 1, 1, 1, 1)
+               </pre>
+                    <li>At every timestep, <code>F, Q, R</code> are applied as above to predict <code>xₖ₊₁|ₖ</code> and <code>Pₖ₊₁|ₖ</code>.</li>
+                    <li>Upon receiving the next <code>zₖ₊₁</code>, the update equations compute <code>xₖ₊₁|ₖ₊₁</code> and <code>Pₖ₊₁|ₖ₊₁</code>.</li>
+                </ul>
+
+                <p>Because each asteroid uses its own covariance matrix, filter convergence is stable. Empirical tuning of <code>R</code> (increasing it to reflect real‐world measurement noise) and <code>Q</code> (to capture small accelerations) reduced average position error by over 60 % and delivered 100 % pass rate on all estimation test cases.</p>
+
                     <h3>Validation & Outcomes</h3>
                     <ul>
                         <li>Achieved <strong>100% accuracy</strong> in asteroid position estimation tests.</li>
