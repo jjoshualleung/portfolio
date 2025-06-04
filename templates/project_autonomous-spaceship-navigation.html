@@ -60,7 +60,7 @@ function changeVideo() {
                 <h3>Kalman Filter Mathematics</h3>
                 <p>Each asteroid is modeled as a 6-state linear system:
                 <pre>
-            xₖ = [x, y, v_x, v_y, a_x, a_y]ᵀ
+        xₖ = [x, y, v_x, v_y, a_x, a_y]ᵀ
                 </pre>
                 where:</p>
                 <ul>
@@ -71,36 +71,36 @@ function changeVideo() {
 
                 <p>​The discrete‐time prediction step (dt = 1) uses the state‐transition matrix <code>F</code>:</p>
                 <pre>
-                F =
-                ⎡1  0  1  0  0.5  0  ⎤
-                ⎢0  1  0  1  0    0.5⎥
-                ⎢0  0  1  0  1    0  ⎥
-                ⎢0  0  0  1  0    1  ⎥
-                ⎢0  0  0  0  1    0  ⎥
-                ⎣0  0  0  0  0    1  ⎦
+            F =
+            ⎡1  0  1  0  0.5  0  ⎤
+            ⎢0  1  0  1  0    0.5⎥
+            ⎢0  0  1  0  1    0  ⎥
+            ⎢0  0  0  1  0    1  ⎥
+            ⎢0  0  0  0  1    0  ⎥
+            ⎣0  0  0  0  0    1  ⎦
                 </pre>
                 <p>,so that
                 <pre>
-                xₖ₊₁|ₖ = F · xₖ|ₖ
+            xₖ₊₁|ₖ = F · xₖ|ₖ
                 </pre>
                 and the predicted covariance is
                 <pre>
-                Pₖ₊₁|ₖ = F · Pₖ|ₖ · Fᵀ + Q
+            Pₖ₊₁|ₖ = F · Pₖ|ₖ · Fᵀ + Q
                 </pre>
                 where <code>Q</code> is the 6×6 process‐noise matrix (tuned empirically).</p>
 
-                <p>When we receive a noisy 2D measurement <code>z = [x_meas, y_meas]ᵀ</code>, the update step employs the measurement matrix <code>H</code> =
+                <p>When we receive a noisy 2D measurement <code>z = [x_meas, y_meas]ᵀ</code>, the update step employs the measurement matrix
                 <pre>
-                ⎡1  0  0  0  0  0⎤
+            H = ⎡1  0  0  0  0  0⎤
                 ⎣0  1  0  0  0  0⎦
                 </pre>
                 ,so that
                 <pre>
-                yₖ = zₖ − H·xₖ₊₁|ₖ
-                Sₖ = H·Pₖ₊₁|ₖ·Hᵀ + R
-                Kₖ = Pₖ₊₁|ₖ·Hᵀ·Sₖ⁻¹
-                xₖ₊₁|ₖ₊₁ = xₖ₊₁|ₖ + Kₖ·yₖ
-                Pₖ₊₁|ₖ₊₁ = (I − Kₖ·H)·Pₖ₊₁|ₖ
+            yₖ = zₖ − H·xₖ₊₁|ₖ
+            Sₖ = H·Pₖ₊₁|ₖ·Hᵀ + R
+            Kₖ = Pₖ₊₁|ₖ·Hᵀ·Sₖ⁻¹
+            xₖ₊₁|ₖ₊₁ = xₖ₊₁|ₖ + Kₖ·yₖ
+            Pₖ₊₁|ₖ₊₁ = (I − Kₖ·H)·Pₖ₊₁|ₖ
                 </pre>
                 where:</p>
                 <ul>
@@ -115,8 +115,8 @@ function changeVideo() {
                 <ul>
                     <li>Each asteroid maintains its own state vector <code>x</code> and covariance <code>P</code>, initialized as:</li>
                 <pre>
-        x₀ = [x_meas, y_meas, 0, 0, 0, 0]ᵀ
-        P₀ = diag(σₓ², σ_y², 1, 1, 1, 1)
+    x₀ = [x_meas, y_meas, 0, 0, 0, 0]ᵀ
+    P₀ = diag(σₓ², σ_y², 1, 1, 1, 1)
                </pre>
                     <li>At every timestep, <code>F, Q, R</code> are applied as above to predict <code>xₖ₊₁|ₖ</code> and <code>Pₖ₊₁|ₖ</code>.</li>
                     <li>Upon receiving the next <code>zₖ₊₁</code>, the update equations compute <code>xₖ₊₁|ₖ₊₁</code> and <code>Pₖ₊₁|ₖ₊₁</code>.</li>
